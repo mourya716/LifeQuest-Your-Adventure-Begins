@@ -50,12 +50,12 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b border-border sticky top-0 bg-background/80 backdrop-blur-lg z-10">
+      <header className="border-b border-border sticky top-0 bg-background/90 backdrop-blur-lg z-10 shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            LifeQuest
+            ✨ LifeQuest
           </h1>
-          <Button onClick={handleLogout} variant="ghost" size="sm" className="gap-2">
+          <Button onClick={handleLogout} variant="ghost" size="sm" className="gap-2 rounded-full hover:bg-primary/20">
             <LogOut className="w-4 h-4" />
             Logout
           </Button>
@@ -79,7 +79,7 @@ const Dashboard = () => {
 
           <TabsContent value="quests" className="space-y-6">
             <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-bold">Daily Quests</h2>
+              <h2 className="text-2xl font-bold">📋 Daily Quests</h2>
               <CreateQuestDialog onCreateQuest={createQuest} />
             </div>
 
@@ -93,7 +93,7 @@ const Dashboard = () => {
           </TabsContent>
 
           <TabsContent value="achievements" className="space-y-6">
-            <h2 className="text-2xl font-bold">Your Achievements</h2>
+            <h2 className="text-2xl font-bold">🏆 Your Achievements</h2>
             {achievementsLoading ? (
               <div className="text-center py-8">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto" />

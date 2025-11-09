@@ -8,51 +8,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
+    --background: 280 40% 97%;
+    --foreground: 280 20% 15%;
 
-    --card: 240 10% 8%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 280 20% 15%;
 
-    --popover: 240 10% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 280 20% 15%;
 
-    --primary: 263 70% 50%;
+    --primary: 320 85% 70%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 8% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 270 60% 85%;
+    --secondary-foreground: 280 20% 20%;
 
-    --muted: 240 8% 15%;
-    --muted-foreground: 240 5% 65%;
+    --muted: 270 40% 95%;
+    --muted-foreground: 280 20% 50%;
 
-    --accent: 263 70% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 200 80% 75%;
+    --accent-foreground: 280 20% 20%;
 
-    --success: 142 76% 36%;
+    --success: 150 60% 65%;
     --success-foreground: 0 0% 100%;
 
-    --gold: 45 93% 47%;
-    --gold-foreground: 240 10% 3.9%;
+    --gold: 45 95% 65%;
+    --gold-foreground: 280 20% 20%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 70% 75%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 240 8% 20%;
-    --input: 240 8% 20%;
-    --ring: 263 70% 50%;
+    --border: 270 30% 90%;
+    --input: 270 30% 90%;
+    --ring: 320 85% 70%;
 
-    --radius: 0.75rem;
+    --radius: 1.5rem;
 
-    --xp-gradient-from: 217 91% 60%;
-    --xp-gradient-to: 263 70% 50%;
+    --xp-gradient-from: 280 70% 75%;
+    --xp-gradient-to: 320 85% 70%;
     
-    --coin-gradient-from: 45 93% 47%;
-    --coin-gradient-to: 38 92% 50%;
+    --coin-gradient-from: 45 95% 65%;
+    --coin-gradient-to: 35 95% 60%;
 
-    --glow-primary: 263 70% 50%;
-    --glow-success: 142 76% 36%;
-    --glow-gold: 45 93% 47%;
+    --glow-primary: 320 85% 70%;
+    --glow-success: 150 60% 65%;
+    --glow-gold: 45 95% 65%;
   }
 }
 
@@ -74,15 +74,15 @@ All colors MUST be HSL.
 
 @layer utilities {
   .glow-primary {
-    box-shadow: 0 0 20px hsl(var(--glow-primary) / 0.5);
+    box-shadow: 0 4px 20px hsl(var(--glow-primary) / 0.3);
   }
   
   .glow-success {
-    box-shadow: 0 0 20px hsl(var(--glow-success) / 0.5);
+    box-shadow: 0 4px 20px hsl(var(--glow-success) / 0.3);
   }
   
   .glow-gold {
-    box-shadow: 0 0 20px hsl(var(--glow-gold) / 0.5);
+    box-shadow: 0 4px 20px hsl(var(--glow-gold) / 0.3);
   }
 
   .xp-gradient {

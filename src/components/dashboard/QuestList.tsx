@@ -15,10 +15,10 @@ export const QuestList = ({ quests, onComplete, onDelete }: QuestListProps) => {
 
   const QuestCard = ({ quest }: { quest: Quest }) => (
     <Card
-      className={`p-4 transition-all duration-300 ${
+      className={`p-4 transition-all duration-300 shadow-md hover:shadow-lg ${
         quest.completed
-          ? "bg-success/10 border-success/30 opacity-60"
-          : "border-primary/20 hover:border-primary/50"
+          ? "bg-success/20 border-success/40 opacity-70"
+          : "border-primary/30 hover:border-primary/50 bg-gradient-to-r from-primary/5 to-accent/5"
       }`}
     >
       <div className="flex items-start justify-between gap-4">
@@ -26,23 +26,24 @@ export const QuestList = ({ quests, onComplete, onDelete }: QuestListProps) => {
           {quest.completed ? (
             <CheckCircle2 className="w-6 h-6 text-success mt-1 flex-shrink-0" />
           ) : (
-            <Circle className="w-6 h-6 text-muted-foreground mt-1 flex-shrink-0" />
+            <Circle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
           )}
           <div className="flex-1">
             <h3 className={`font-semibold mb-1 ${quest.completed ? "line-through" : ""}`}>
+              {quest.completed ? "✓ " : ""}
               {quest.title}
             </h3>
             {quest.description && (
               <p className="text-sm text-muted-foreground mb-2">{quest.description}</p>
             )}
             <div className="flex items-center gap-4 text-sm">
-              <div className="flex items-center gap-1 text-primary">
-                <Trophy className="w-4 h-4" />
-                <span>+{quest.xp_reward} XP</span>
+              <div className="flex items-center gap-1 bg-primary/20 px-2 py-1 rounded-full shadow-sm">
+                <Trophy className="w-4 h-4 text-primary" />
+                <span className="font-semibold">+{quest.xp_reward} XP</span>
               </div>
-              <div className="flex items-center gap-1 text-gold">
-                <Coins className="w-4 h-4" />
-                <span>+{quest.coin_reward}</span>
+              <div className="flex items-center gap-1 bg-gold/20 px-2 py-1 rounded-full shadow-sm">
+                <Coins className="w-4 h-4 text-gold" />
+                <span className="font-semibold">+{quest.coin_reward}</span>
               </div>
             </div>
           </div>
@@ -52,16 +53,16 @@ export const QuestList = ({ quests, onComplete, onDelete }: QuestListProps) => {
             <Button
               size="sm"
               onClick={() => onComplete(quest.id, quest.xp_reward, quest.coin_reward)}
-              className="glow-success"
+              className="glow-success rounded-full shadow-sm"
             >
-              Complete
+              ✨ Complete
             </Button>
           )}
           <Button
             size="sm"
             variant="ghost"
             onClick={() => onDelete(quest.id)}
-            className="text-destructive hover:text-destructive"
+            className="text-destructive hover:text-destructive hover:bg-destructive/20 rounded-full"
           >
             <Trash2 className="w-4 h-4" />
           </Button>
@@ -101,8 +102,8 @@ export const QuestList = ({ quests, onComplete, onDelete }: QuestListProps) => {
       )}
 
       {quests.length === 0 && (
-        <Card className="p-8 text-center border-dashed">
-          <p className="text-muted-foreground">No quests yet. Create your first quest to begin!</p>
+        <Card className="p-8 text-center border-dashed shadow-md">
+          <p className="text-muted-foreground text-lg">✨ No quests yet. Create your first quest to begin your adventure!</p>
         </Card>
       )}
     </div>

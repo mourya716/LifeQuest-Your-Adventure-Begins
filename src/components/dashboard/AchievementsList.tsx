@@ -9,10 +9,10 @@ interface AchievementsListProps {
 export const AchievementsList = ({ achievements }: AchievementsListProps) => {
   if (achievements.length === 0) {
     return (
-      <Card className="p-8 text-center border-dashed">
+      <Card className="p-8 text-center border-dashed shadow-md">
         <Award className="w-12 h-12 text-muted-foreground mx-auto mb-2" />
         <p className="text-muted-foreground">
-          Complete quests and level up to unlock achievements!
+          🏆 Complete quests and level up to unlock achievements!
         </p>
       </Card>
     );
@@ -23,19 +23,19 @@ export const AchievementsList = ({ achievements }: AchievementsListProps) => {
       {achievements.map((achievement) => (
         <Card
           key={achievement.id}
-          className="p-4 border-gold/30 bg-gradient-to-br from-gold/10 to-gold/5 glow-gold"
+          className="p-4 border-gold/40 bg-gradient-to-br from-gold/20 to-gold/10 glow-gold shadow-lg hover:shadow-xl transition-shadow"
         >
           <div className="flex items-start gap-3">
-            <div className="p-2 bg-gold/20 rounded-lg">
+            <div className="p-3 bg-gold/30 rounded-2xl shadow-sm">
               <Star className="w-6 h-6 text-gold" />
             </div>
             <div className="flex-1">
-              <h4 className="font-semibold mb-1">{achievement.achievement_name}</h4>
+              <h4 className="font-semibold mb-1">🎉 {achievement.achievement_name}</h4>
               <p className="text-sm text-muted-foreground">
                 {achievement.achievement_description}
               </p>
               <p className="text-xs text-muted-foreground mt-2">
-                Unlocked {new Date(achievement.unlocked_at).toLocaleDateString()}
+                ✨ Unlocked {new Date(achievement.unlocked_at).toLocaleDateString()}
               </p>
             </div>
           </div>
