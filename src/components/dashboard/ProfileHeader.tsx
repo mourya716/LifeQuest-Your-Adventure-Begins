@@ -1,0 +1,57 @@
+import { Profile } from "@/hooks/useProfile";
+import { Progress } from "@/components/ui/progress";
+import { Card } from "@/components/ui/card";
+import { Coins, Flame, Trophy } from "lucide-react";
+
+interface ProfileHeaderProps {
+  profile: Profile;
+}
+
+export const ProfileHeader = ({ profile }: ProfileHeaderProps) => {
+  const xpProgress = (profile.xp % 100);
+  const xpForNextLevel = 100;
+
+  return (
+    <Card className="p-6 border-primary/20 glow-primary">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div className="flex-1">
+          <h2 className="text-3xl font-bold mb-2">{profile.username}</h2>
+          <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+            <div className="flex items-center gap-1">
+              <Trophy className="w-4 h-4 text-primary" />
+              <span>Level {profile.level}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Coins className="w-4 h-4 text-gold" />
+              <span>{profile.coins} coins</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <Flame className="w-4 h-4 text-destructive" />
+              <span>{profile.current_streak} day streak</span>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex justify-between text-sm">
+              <span>XP Progress</span>
+              <span className="text-primary font-semibold">
+                {xpProgress} / {xpForNextLevel}
+              </span>
+            </div>
+            <div className="relative">
+              <Progress value={xpProgress} className="h-3" />
+              <div className="absolute inset-0 h-3 xp-gradient rounded-full" style={{ width: `${xpProgress}%` }} />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg border border-primary/30 min-w-[120px]">
+          <div className="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-level-up">
+            {profile.level}
+          </div>
+          <div className="text-sm text-muted-foreground mt-1">Level</div>
+        </div>
+      </div>
+    </Card>
+  );
+};
