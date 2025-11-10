@@ -91,9 +91,12 @@ export const useQuests = (userId: string | undefined) => {
       if (error) throw error;
 
       toast({
-        title: "Quest Created!",
+        title: "Quest Created! ✨",
         description: "A new challenge awaits you",
       });
+
+      // Immediately refetch to show the new quest
+      await fetchQuests();
     } catch (error: any) {
       toast({
         title: "Error",
